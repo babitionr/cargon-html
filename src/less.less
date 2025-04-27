@@ -6,7 +6,7 @@ html {
   }
 }
 body {
-  @apply bg-base-100 text-base-content;
+  @apply bg-base-200 text-base-content;
 }
 h1,
 h2,
@@ -319,7 +319,7 @@ form {
 .mega-menu {
   @apply flex items-center gap-10;
   > li > a {
-    @apply text-base-100 hover:text-base-100 font-bold;
+    @apply text-base-100 hover:text-primary;
     &:has(+ ul):after {
       @apply !bg-base-100;
     }
@@ -336,7 +336,7 @@ form {
       > ul {
         @apply top-auto left-auto -mt-8 ml-80;
         &.mega {
-          @apply left-auto;
+          @apply text-base-content left-auto;
         }
       }
       &:hover {
@@ -351,15 +351,17 @@ form {
     @apply relative;
 
     > a {
-      @apply ~'py-2.5' relative block;
-      &:has(+ ul) {
-        @apply pr-5;
-        &::after {
-          @apply ~'size-3.5' bg-base-content absolute top-4 right-0 rotate-90 bg-cover;
-          content: "";
-          mask: url("/assets/images/arrow.svg") no-repeat 100% 100%;
-          mask-size: cover;
-        }
+      @apply ~'py-2.5' text-base-content block;
+    }
+    &:has(ul) {
+      > a {
+        @apply pr-5; /* Thêm padding phải để chừa chỗ cho mũi tên */
+      }
+      &::after {
+        @apply ~'size-3.5' bg-base-content absolute top-4 right-0 block rotate-90;
+        content: "";
+        mask: url("/assets/images/arrow.svg") no-repeat 100% 100%;
+        mask-size: cover;
       }
     }
     > ul {
